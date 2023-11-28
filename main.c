@@ -18,9 +18,18 @@ typedef struct Piste Piste;
 struct Piste
 {
 	int numPiste;
-	int longueur;
+	int longueur; //nb d'avions en attente dans la file piste
 	int catégoriePiste; // 0:Petite 1:Moyenne 2:Grande
 	int nbMax;
+	Avion* suiv;
+};
+
+typedef struct Parking Parking;
+
+struct Parking
+{
+	int nbMax;
+	int longueur; //nb d'avions en attente dans la file parking
 	Avion* suiv;
 };
 
