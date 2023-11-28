@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_PLACES 30 //parking de 30 places amx 
 
 typedef struct Avion Avion;
 
@@ -34,8 +35,37 @@ struct Parking
 };
 
 
+void ajouterAvionPiste(Parking *parking);
+void retirerAvionParking(Parking *parking);
+
+
 int main(int argc, char const *argv[])
 {
 	printf("Y sont ou mes cramptés ou koa la");
 	return 0;
+}
+
+
+// Fonction pour ajouter un avion au parking
+//si place occuppees < 30 alors il y a de la place 
+// il faut rajouter une foction qui enleve l'avion qui vient d'atterir de la liste d'attente atterir 
+// et inversement rajouter l'avion qui vient de decoller sur la liste d'attente decoller 
+void ajouterAvionPiste(Parking *parking) {
+    if (parking->longueur < MAX_PLACES) {
+        parking->longueur++;
+        printf("Avion ajoutée. Places occupées : %d\n", parking->longueur);
+    } else {
+        printf("Le parking est plein. Aucun place disponible.\n");
+    }
+}
+
+
+// Fonction pour retirer un avion du parking
+void retirerAvionParking(Parking *parking) {
+    if (parking->longueur > 0) {
+        parking->longueur--;
+        printf("avion retirée. Places occupées : %d\n", parking->longueur);
+    } else {
+        printf("Le parking est vide. Aucun avion à retirer.\n");
+    }
 }
