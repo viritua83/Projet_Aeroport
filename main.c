@@ -36,6 +36,6 @@ struct Parking
 
 int main(int argc, char const *argv[])
 {
-	printf("Y sont ou mes cramptés");
+	printf("Y sont ou mes cramptés ou koa la");
 	return 0;
 }
