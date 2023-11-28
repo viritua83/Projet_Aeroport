@@ -1,0 +1,10 @@
+ID: 1, Type: 1, État: 1, NbPassagers: 10
+ID: 2, Type: 2, État: 0, NbPassagers: 150
+ID: 3, Type: 0, État: 1, NbPassagers: 4
+ID: 4, Type: 1, État: 1, NbPassagers: 8
+ID: 5, Type: 2, État: 1, NbPassagers: 200
+ID: 6, Type: 0, État: 0, NbPassagers: 2
+ID: 7, Type: 1, État: 1, NbPassagers: 12
+ID: 8, Type: 2, État: 1, NbPassagers: 180
+ID: 9, Type: 0, État: 0, NbPassagers: 3
+ID: 10, Type: 1, État: 0, NbPassagers: 6

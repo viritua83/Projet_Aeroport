@@ -13,16 +13,24 @@ void afficheAvion(Avion* avionSurPiste){
     if (avionSurPiste != NULL)
     {
         puts("------------------------------------------------------------");
-        printf("Donnees de l'Avion | ID : %d , Etat : %s , Categorie : %s\n",avionSurPiste->id,etatAvion(avionSurPiste->etat),categorieAvion(avionSurPiste->categorie));
+        printf("Donnees de l'Avion | ID : %d , Etat : %s , Categorie : %s , nbPassagers : %d\n",avionSurPiste->id,etatAvion(avionSurPiste->etat),categorieAvion(avionSurPiste->categorie), avionSurPiste->nbPassagers);
     }
     else{
         printf("Aucun Avion selectionne");
     }
 }
 
+void afficheBDD(BDD baseDeDonnee){
+    Avion* tmp = baseDeDonnee.premier;
+    while(tmp != NULL){
+        afficheAvion(tmp);
+        tmp = tmp->suiv;
+    }
+}
+
 void affichageDonnees() {
     Piste maPiste = creerPiste();
-    maPiste.avionSurPiste = creerAvion();
     affichePiste(maPiste);
-    afficheAvion(maPiste.avionSurPiste);
+    BDD baseDeDonnee = lisBDD();
+    afficheBDD(baseDeDonnee);
 }

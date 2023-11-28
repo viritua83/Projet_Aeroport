@@ -10,7 +10,14 @@ struct Avion {
     Avion * suiv ;
 };
 
+typedef struct BDD BDD;
+struct BDD
+{
+	Avion* premier;
+};
+
 char* etatAvion(int intEtat);
 char* categorieAvion(int intCat);
 Avion* creerAvion();
+BDD lisBDD();
 #endif

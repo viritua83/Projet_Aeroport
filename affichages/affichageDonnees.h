@@ -5,5 +5,6 @@
 
 void affichePiste(Piste piste);
 void afficheAvion(Avion* avionSurPiste);
+void afficheBDD(BDD baseDeDonnee);
 void affichageDonnees();
 #endif
