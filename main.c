@@ -7,6 +7,7 @@
 
 int main(int argc, char const *argv[])
 {
+	creerBDD();
 	affichageDonnees();
 	return 0;
 }

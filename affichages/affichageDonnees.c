@@ -5,14 +5,14 @@
 
 
 void affichePiste(Piste piste){
-    puts("------------------------------------------------------------");
+    puts("-------------------------------------------------------------------------------------------------");
     printf("Donnees de la Piste | Numero : %d , Longueur : %d , Avions Max en attente : %d , Categorie : %s\n",piste.numero,piste.longueur,piste.maxEnAtt,categoriePiste(piste.categorie));
 }
 
 void afficheAvion(Avion* avionSurPiste){
     if (avionSurPiste != NULL)
     {
-        puts("------------------------------------------------------------");
+        puts("-------------------------------------------------------------------------------------------------");
         printf("Donnees de l'Avion | ID : %d , Etat : %s , Categorie : %s , nbPassagers : %d\n",avionSurPiste->id,etatAvion(avionSurPiste->etat),categorieAvion(avionSurPiste->categorie), avionSurPiste->nbPassagers);
     }
     else{
@@ -29,8 +29,8 @@ void afficheBDD(BDD baseDeDonnee){
 }
 
 void affichageDonnees() {
-    Piste maPiste = creerPiste();
-    affichePiste(maPiste);
+    // Piste maPiste = creerPiste();
+    // affichePiste(maPiste);
     BDD baseDeDonnee = lisBDD();
     afficheBDD(baseDeDonnee);
 }

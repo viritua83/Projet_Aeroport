@@ -16,8 +16,9 @@ struct BDD
 	Avion* premier;
 };
 
+// Avion* creerAvion();
 char* etatAvion(int intEtat);
 char* categorieAvion(int intCat);
-Avion* creerAvion();
+void creerBDD();
 BDD lisBDD();
 #endif
