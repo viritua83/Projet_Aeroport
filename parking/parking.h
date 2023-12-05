@@ -7,7 +7,7 @@ struct Parking
 {
 	int nbMax;
 	int longueur; //nb d'avions en attente dans la file parking
-	Avion* suiv;
+	Avion* premier;
 };
 
 void ajouterAvionParking(Parking *parking);

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "avion.h"
+#include "../parking/parking.h"
 
 char* etatAvion(int intEtat){
     switch (intEtat)
@@ -58,7 +59,7 @@ void creerBDD(){
     fclose(fichier);
 }
 
-void sauvegardeBDD(Parking *parking,Parking *ciel){
+void sauvegardeBDD(Parking parking,Parking ciel){
     FILE *fichier;
     fichier = fopen("avions.txt", "w+");
 
