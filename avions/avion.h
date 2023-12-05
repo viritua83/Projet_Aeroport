@@ -21,5 +21,4 @@ char* etatAvion(int intEtat);
 char* categorieAvion(int intCat);
 void creerBDD();
 BDD lisBDD();
-Avion* decollage(BDD baseDeDonnee);
 #endif

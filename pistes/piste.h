@@ -13,4 +13,5 @@ struct Piste {
 
 char* categoriePiste(int intCat);
 Piste creerPiste();
+Avion* decollage(BDD baseDeDonnee);
 #endif
