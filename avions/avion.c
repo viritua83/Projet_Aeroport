@@ -87,22 +87,27 @@ BDD lisBDD(){
     return baseDeDonnee;
 }
 
-// Avion* creerAvion() {
-//     Avion* nouvAvion = (Avion*)malloc(sizeof(Avion));
-//     if (nouvAvion == NULL) {
-//         printf("Erreur d'allocation de mémoire.\n");
-//         return NULL;
-//     }
-//     system("clear");
-//     nouvAvion->suiv = NULL;
-//     printf("Entrez l'id :\n");
-//     scanf("%d", &nouvAvion->id);
-//     printf("Entrez le nbPassagers :\n");
-//     scanf("%d", &nouvAvion->nbPassagers);
-//     printf("Entrez la categorie :\n");
-//     scanf("%d", &nouvAvion->categorie);
-//     printf("Entrez l'etat :\n");
-//     scanf("%d", &nouvAvion->etat);
-//     system("clear");
-//     return nouvAvion;
-// }
+Avion* decollage(BDD baseDeDonnee){
+    Avion* tmp = baseDeDonnee.premier;
+    int idCherche = 0;
+    printf("Donnez l'id de l'avion a faire decoller :\n");
+    scanf("%d", &idCherche);
+    while (tmp->id != idCherche){
+        tmp = tmp->suiv;
+        if (tmp == NULL)
+        {
+            printf("L'avion n'existe pas\n");
+            return NULL;
+        }
+    }
+    if (tmp->etat == 1){
+        printf("L'avion est deja dans les airs\n");
+        return NULL;
+    }
+    else{
+        printf("L'avion decolle\n");
+        tmp->etat = 1;
+    }
+
+    return  tmp;
+}

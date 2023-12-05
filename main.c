@@ -7,7 +7,8 @@
 
 int main(int argc, char const *argv[])
 {
-	creerBDD();
-	affichageDonnees();
+	// creerBDD();
+	BDD baseDeDonnee = lisBDD();
+	afficheAvion(decollage(baseDeDonnee));
 	return 0;
 }
