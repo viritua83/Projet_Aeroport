@@ -8,7 +8,11 @@
 int main(int argc, char const *argv[])
 {
 	// creerBDD();
-	BDD baseDeDonnee = lisBDD();
-	afficheAvion(decollage(baseDeDonnee));
+	Piste piste1 = creerPiste(1, 0, 200);
+	affichePiste(piste1);
+	Piste piste2 = creerPiste(2, 1, 600);
+	affichePiste(piste2);
+	Piste piste3 = creerPiste(3, 2, 1000);
+	affichePiste(piste3);
 	return 0;
 }

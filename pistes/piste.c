@@ -21,12 +21,12 @@ char* categoriePiste(int intCat){
     }
 }
 
-Piste creerPiste(){
+Piste creerPiste(int numero, int categorie, int longueur){
     Piste nouvPiste;
-    nouvPiste.numero = 1;
-    nouvPiste.longueur = 100;
+    nouvPiste.numero = numero;
     nouvPiste.maxEnAtt = 3;
-    nouvPiste.categorie = 0;
+    nouvPiste.categorie = categorie;
+    nouvPiste.longueur = longueur;
     return nouvPiste;
 }
 
