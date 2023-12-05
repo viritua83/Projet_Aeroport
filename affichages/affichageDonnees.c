@@ -6,14 +6,19 @@
 
 void affichePiste(Piste piste){
     puts("-------------------------------------------------------------------------------------------------");
+    Avion* tmp = piste.avionSurPiste;
     printf("Donnees de la Piste | Numero : %d , Longueur : %d , Avions Max en attente : %d , Categorie : %s\n",piste.numero,piste.longueur,piste.maxEnAtt,categoriePiste(piste.categorie));
+    while(tmp != NULL){
+        afficheAvion(tmp);
+        tmp = tmp->suiv;
+    }
 }
 
 void afficheAvion(Avion* avionSurPiste){
     if (avionSurPiste != NULL)
     {
         puts("-------------------------------------------------------------------------------------------------");
-        printf("Donnees de l'Avion | ID : %5d , Etat : %s , Categorie : %s , nbPassagers : %d\n",avionSurPiste->id,etatAvion(avionSurPiste->etat),categorieAvion(avionSurPiste->categorie), avionSurPiste->nbPassagers);
+        printf("Donnees de l'Avion | ID : %d , Etat : %s , Categorie : %s , nbPassagers : %d\n",avionSurPiste->id,etatAvion(avionSurPiste->etat),categorieAvion(avionSurPiste->categorie), avionSurPiste->nbPassagers);
     }
     else{
         printf("Aucun Avion selectionne\n");

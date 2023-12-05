@@ -1,5 +1,5 @@
-make: main.o ./affichages/affichageDonnees.o ./pistes/piste.o ./avions/avion.o 
-	gcc -o main main.o ./affichages/affichageDonnees.o ./pistes/piste.o ./avions/avion.o
+make: main.o ./affichages/affichageDonnees.o ./pistes/piste.o ./parking/parking.o ./avions/avion.o 
+	gcc -o main main.o ./affichages/affichageDonnees.o ./pistes/piste.o ./parking/parking.o ./avions/avion.o
 
 main.o: main.c 
 	gcc -Wall -c main.c
@@ -9,6 +9,9 @@ affichageDonnees.o: ./affichages/affichageDonnees.c -g
 
 piste.o: ./pistes/piste.c -g
 	gcc -Wall -c ./pistes/piste.c
+
+parking.o: ./parking/parking.c -g
+	gcc -Wall -c ./parking/parking.c
 
 avion.o: ./avions/avion.c -g
 	gcc -Wall -c ./avions/avion.c

@@ -3,6 +3,7 @@
 #include "piste.h"
 #include "../avions/avion.h"
 
+
 char* categoriePiste(int intCat){
     switch (intCat)
     {
@@ -21,36 +22,40 @@ char* categoriePiste(int intCat){
     }
 }
 
-Piste creerPiste(int numero, int categorie, int longueur){
+Piste creerPiste(int numero, int categorie){
     Piste nouvPiste;
     nouvPiste.numero = numero;
     nouvPiste.maxEnAtt = 3;
     nouvPiste.categorie = categorie;
-    nouvPiste.longueur = longueur;
+    nouvPiste.longueur = 0;
+    nouvPiste.avionSurPiste = NULL;
     return nouvPiste;
 }
 
-Avion* decollage(BDD baseDeDonnee){
-    Avion* tmp = baseDeDonnee.premier;
-    int idCherche = 0;
-    printf("Donnez l'id de l'avion a faire decoller :\n");
-    scanf("%d", &idCherche);
-    while (tmp->id != idCherche){
-        tmp = tmp->suiv;
-        if (tmp == NULL)
-        {
-            printf("L'avion n'existe pas\n");
-            return NULL;
-        }
-    }
-    if (tmp->etat == 1){
-        printf("L'avion est deja dans les airs\n");
-        return NULL;
-    }
-    else{
-        printf("L'avion decolle\n");
-        tmp->etat = 1;
+Piste decollage(Piste piste, Parking* ciel) {
+    if (piste.avionSurPiste == NULL) {
+        // La piste est vide, rien à faire
+        printf("la piste est vide\n");
+        return piste;
     }
 
-    return  tmp;
+    Avion* tmp = piste.avionSurPiste;
+    Avion* ptmp = NULL;
+
+    while (tmp->suiv != NULL) {
+        ptmp = tmp;
+        tmp = tmp->suiv;
+    }
+
+    if (ptmp == NULL) {
+        // Il n'y a qu'un seul élément dans la liste
+        piste.avionSurPiste = NULL;
+    } else {
+        ptmp->suiv = NULL;
+    }
+
+    tmp->suiv = ciel->premier;
+    ciel->premier = tmp;
+
+    return piste;
 }

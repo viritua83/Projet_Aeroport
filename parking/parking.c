@@ -25,3 +25,12 @@ void retirerAvionParking(Parking *parking) {
         printf("Le parking est vide. Aucun avion à retirer.\n");
     }
 }
+
+Parking creerParkingTest(){
+    Parking parking = {0};
+    parking.longueur = 0;
+    parking.nbMax = 50;
+    parking.premier = NULL;
+
+    return parking;
+}

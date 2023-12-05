@@ -1,6 +1,7 @@
 #ifndef PISTE_H
 #define PISTE_H
 #include "../avions/avion.h"
+#include "../parking/parking.h"
 
 typedef struct Piste Piste ;
 struct Piste {
@@ -12,6 +13,6 @@ struct Piste {
 };
 
 char* categoriePiste(int intCat);
-Piste creerPiste(int numero, int categorie, int longueur);
-Avion* decollage(BDD baseDeDonnee);
+Piste creerPiste(int numero, int categorie);
+Piste decollage(Piste piste, Parking* ciel);
 #endif
