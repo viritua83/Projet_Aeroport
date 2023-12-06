@@ -9,9 +9,14 @@ void afficheDonneePiste(Piste piste);
 void afficheDonneeAvion(Avion* avionSurPiste);
 void afficheBDD(BDD baseDeDonnee);
 void affichageDonnees();
-void afficheCiel(Parking ciel);
+void afficheCiel(int nbAvions);
 void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP);
 void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP);
 int gestionAffichageParking(int choix);
+const char * verifAvion(int entier);
+void afficheRangee(int piste1, int piste2, int piste3,int numRangee);
+void affichePistes();
+void afficheGlobal();
+void decallageParking();
 
 #endif

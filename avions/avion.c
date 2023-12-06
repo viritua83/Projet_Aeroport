@@ -3,6 +3,7 @@
 #include <time.h>
 #include "avion.h"
 
+
 char* etatAvion(int intEtat){
     switch (intEtat)
     {

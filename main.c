@@ -24,6 +24,6 @@ int main(int argc, char const *argv[])
 	// affichePiste(piste2);
 	// Piste piste3 = creerPiste(3, 2, 1000);
 	// affichePiste(piste3);
-	gestionAffichageParking(2);
+	afficheGlobal();
 	return 0;
 }

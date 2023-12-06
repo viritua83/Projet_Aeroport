@@ -4,6 +4,43 @@
 #include "affichageDonnees.h"
 
 
+const char * verifAvion(int entier){
+    switch(entier){
+        case 1:
+            return "✈️";
+        default:
+            return " ";
+    }
+}
+
+void afficheRangee(int piste1, int piste2, int piste3,int numRangee){
+    const char *espace1 = verifAvion(piste1);
+    const char *espace2 = verifAvion(piste2);
+    const char *espace3 = verifAvion(piste3);
+    if (numRangee < 2)
+    {
+        printf("    |     |    |     |    |     |\n");
+        printf("    |  %s  |    |  %s  |    |  %s  |\n", espace1, espace2, espace3);
+    }
+    else if (1 < numRangee && numRangee < 3)
+    {
+        printf("    |     |    |     |\n");
+        printf("    |  %s  |    |  %s  |\n", espace1, espace2);
+    }
+    else {
+        printf("    |     |\n");
+        printf("    |  %s  |\n", espace1);
+    }
+}
+
+void affichePistes(){
+    afficheRangee(1, 0, 0, 3);
+    afficheRangee(1, 1, 0, 2);
+    afficheRangee(0, 1, 1, 1);
+    afficheRangee(0, 0, 0, 0);
+}
+
+
 void afficheDonneePiste(Piste piste){
     puts("-------------------------------------------------------------------------------------------------");
     Avion* tmp = piste.avionSurPiste;
@@ -25,22 +62,24 @@ void afficheDonneeAvion(Avion* avion){
     }
 }
 
-void afficheCiel(Parking ciel){
-    Avion * tmp = ciel.premier;
+void afficheCiel(int nbAvions){
+    int tmp = 0;
     int i = 0;
-    while(tmp != NULL){
-        if (i< 5)
+    while(tmp != nbAvions){
+        if (i< 10)
         {
             printf("  ✈️  ");
         }
         else{
             printf("\n");
+            printf("\n");
             printf("  ✈️  ");
             i = 0;
         }
+        tmp+=1;
         i +=1;
-        tmp = tmp->suiv;
     }
+    printf("\n");
 }
 
 // void affichePistes(Piste piste1,Piste piste2,Piste piste3){
@@ -64,14 +103,20 @@ void affichageDonnees() {
     BDD baseDeDonnee = lisBDD();
     afficheBDD(baseDeDonnee);
 }
-void affiche_parking(int lignes, int colonnes, int positionsP[], int nombreP) {
 
+void decallageParking() {
+    printf("        ");
+}
+
+void affiche_parking(int lignes, int colonnes, int positionsP[], int nombreP) {
+    decallageParking();
     for (int i = 0; i < colonnes; i++) {
         printf("+---");
     }
     printf("+\n");
 
     for (int i = 0; i < lignes; i++) {
+        decallageParking();
         for (int j = 0; j < colonnes; j++) {
             int position = i * colonnes + j;
             int pPresent = 0;
@@ -90,7 +135,7 @@ void affiche_parking(int lignes, int colonnes, int positionsP[], int nombreP) {
             }
         }
         printf("|\n");
-
+        decallageParking();
         for (int j = 0; j < colonnes; j++) {
             printf("+---");
         }
@@ -101,7 +146,7 @@ void affiche_parking(int lignes, int colonnes, int positionsP[], int nombreP) {
 void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP) {
 
     if (*nombreP == MAX_PLACES ){
-        printf("Le parking est plein\n");
+        // printf("Le parking est plein\n");
                         }
     else{
     // Ajouter la nouvelle position du P dans le tableau
@@ -109,16 +154,17 @@ void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nomb
     (*nombreP)++;
      int a = MAX_PLACES - *nombreP;
 
-    printf("Il reste %d places \n", a );}
+    // printf("Il reste %d places \n", a );}
 
     // Appeler la fonction pour afficher le parking
     affiche_parking(lignes, colonnes, positionsP, *nombreP);
+}
 }
 
 void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP) {
     if (*nombreP == 0)
     {
-        printf("Le parking est vide , rien a faire decoller \n");
+        // printf("Le parking est vide , rien a faire decoller \n");
     }
     else{
     // Ajouter la nouvelle position du P dans le tableau
@@ -127,10 +173,11 @@ void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP
 
     int a = MAX_PLACES - *nombreP;
 
-    printf("Il reste %d places \n", a );}
+    // printf("Il reste %d places \n", a );}
 
     // Appeler la fonction pour afficher le parking
     affiche_parking(lignes, colonnes, positionsP, *nombreP);
+}
 }
 
 int gestionAffichageParking(int choix) {
@@ -141,12 +188,12 @@ int gestionAffichageParking(int choix) {
 
         switch (choix) {
             case 1: {
-                printf("un avion decolle \n");
+                // printf("un avion decolle \n");
                decollageAffichage(lignes, colonnes, positionsP, &nombreP);
                 break;
             }
             case 2:
-                printf("atterrissageAffichage\n");
+                // printf("atterrissageAffichage\n");
                atterrissageAffichage(lignes, colonnes, positionsP, &nombreP);
                 break;
 
@@ -154,8 +201,19 @@ int gestionAffichageParking(int choix) {
                 break;
 
             default:
-                printf("Choix invalide. Veuillez réessayer.\n");
+                // printf("Choix invalide. Veuillez réessayer.\n");
         }
  
     return 0;
+}
+
+void afficheGlobal()
+{
+    afficheCiel(50);
+    puts("");
+    puts("");
+    puts("");
+    puts("");
+    affichePistes();
+    gestionAffichageParking(2);
 }

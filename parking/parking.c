@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "parking.h"
 
+
 void ajouterAvionParking(Parking *parking) {
     if (parking->longueur < MAX_PLACES) {
         parking->longueur++;

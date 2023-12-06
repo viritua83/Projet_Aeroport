@@ -17,8 +17,9 @@ void afficheBienvenue() {
 void afficheOptions() {
     printf("*  Options disponibles :                                            *\n");
     printf("*                                                                   *\n");
-    printf("*  1. Commencer la simulation                                       *\n");
-    printf("*  2. Charger des donnees                                           *\n");
+    printf("*  1. Commencer la simulation manuelle                              *\n");
+    printf("*  1. Commencer la simulation automatique                           *\n");
+    printf("*  2. Sauvegarder les donnees                                       *\n");
     printf("*  3. Paramètres                                                    *\n");
     printf("*  4. Quitter                                                       *\n");
     printf("*                                                                   *\n");
