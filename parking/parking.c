@@ -27,15 +27,6 @@ void retirerAvionParking(Parking *parking) {
     }
 }
 
-Parking creerParkingTest(){
-    Parking parking = {0};
-    parking.longueur = 0;
-    parking.nbMax = 50;
-    parking.premier = NULL;
-
-    return parking;
-}
-
 void sauvegardeBDD(Parking parking,Parking ciel){
     FILE *fichier;
     fichier = fopen("avions.txt", "w+");

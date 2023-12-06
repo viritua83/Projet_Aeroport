@@ -13,6 +13,6 @@ struct Piste {
 };
 
 char* categoriePiste(int intCat);
-Piste creerPiste(int numero, int categorie);
+Piste creerPiste(int numero);
 Piste decollage(Piste piste, Parking* ciel);
 #endif

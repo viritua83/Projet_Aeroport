@@ -55,6 +55,18 @@ void creerBDD(){
 
         fprintf(fichier, "ID: %d, Type: %d, Etat: %d, NbPassagers: %d\n", avions[i].id, avions[i].categorie, avions[i].etat, avions[i].nbPassagers);
     }
-
+    int compteur = 0;
+    for (int i = 0; i < 50; ++i)
+    {
+        if (avions[i].etat = 0)
+        {
+            compteur+=1;
+        }
+    }
+    if (compteur>30)
+    {
+        fclose(fichier);
+        creerBDD();
+    }
     fclose(fichier);
 }
