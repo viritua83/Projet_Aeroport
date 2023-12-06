@@ -64,3 +64,98 @@ void affichageDonnees() {
     BDD baseDeDonnee = lisBDD();
     afficheBDD(baseDeDonnee);
 }
+void affiche_parking(int lignes, int colonnes, int positionsP[], int nombreP) {
+
+    for (int i = 0; i < colonnes; i++) {
+        printf("+---");
+    }
+    printf("+\n");
+
+    for (int i = 0; i < lignes; i++) {
+        for (int j = 0; j < colonnes; j++) {
+            int position = i * colonnes + j;
+            int pPresent = 0;
+
+            for (int k = 0; k < nombreP; k++) {
+                if (positionsP[k] == position) {
+                    pPresent = 1;
+                    break;
+                }
+            }
+
+            if (pPresent) {
+                printf("| ✈️ ");
+            } else {
+                printf("|   ");
+            }
+        }
+        printf("|\n");
+
+        for (int j = 0; j < colonnes; j++) {
+            printf("+---");
+        }
+        printf("+\n");
+    }
+}
+
+void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP) {
+
+    if (*nombreP == MAX_PLACES ){
+        printf("Le parking est plein\n");
+                        }
+    else{
+    // Ajouter la nouvelle position du P dans le tableau
+    positionsP[*nombreP] = (*nombreP) % (lignes * colonnes);
+    (*nombreP)++;
+     int a = MAX_PLACES - *nombreP;
+
+    printf("Il reste %d places \n", a );}
+
+    // Appeler la fonction pour afficher le parking
+    affiche_parking(lignes, colonnes, positionsP, *nombreP);
+}
+
+void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP) {
+    if (*nombreP == 0)
+    {
+        printf("Le parking est vide , rien a faire decoller \n");
+    }
+    else{
+    // Ajouter la nouvelle position du P dans le tableau
+    positionsP[*nombreP] = (*nombreP) % (lignes * colonnes);
+    (*nombreP)--;
+
+    int a = MAX_PLACES - *nombreP;
+
+    printf("Il reste %d places \n", a );}
+
+    // Appeler la fonction pour afficher le parking
+    affiche_parking(lignes, colonnes, positionsP, *nombreP);
+}
+
+int gestionAffichageParking(int choix) {
+    int lignes = 6;
+    int colonnes = 5;
+    int positionsP[MAX_PLACES];
+    int nombreP = 0;
+
+        switch (choix) {
+            case 1: {
+                printf("un avion decolle \n");
+               decollageAffichage(lignes, colonnes, positionsP, &nombreP);
+                break;
+            }
+            case 2:
+                printf("atterrissageAffichage\n");
+               atterrissageAffichage(lignes, colonnes, positionsP, &nombreP);
+                break;
+
+             case 3:
+                break;
+
+            default:
+                printf("Choix invalide. Veuillez réessayer.\n");
+        }
+ 
+    return 0;
+}
