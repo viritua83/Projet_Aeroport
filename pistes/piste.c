@@ -21,16 +21,6 @@ char* categoriePiste(int intCat){
     }
 }
 
-Piste creerPiste(int numero, int categorie){
-    Piste nouvPiste;
-    nouvPiste.numero = numero;
-    nouvPiste.maxEnAtt = 3;
-    nouvPiste.categorie = categorie;
-    nouvPiste.longueur = 0;
-    nouvPiste.avionSurPiste = NULL;
-    return nouvPiste;
-}
-
 Piste decollage(Piste piste, Parking* ciel) {
     if (piste.avionSurPiste == NULL) {
         printf("Aucun avion ne doit décoller\n");
