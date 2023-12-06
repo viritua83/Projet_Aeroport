@@ -41,8 +41,3 @@ void animDecollage() {
         usleep(125000);
     }
 }
-
-int main() {
-    animDecollage();
-    return 0;
-}

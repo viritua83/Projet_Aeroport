@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "piste.h"
-#include "../avions/avion.h"
 
 
 char* categoriePiste(int intCat){

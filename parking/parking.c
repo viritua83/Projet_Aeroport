@@ -34,3 +34,25 @@ Parking creerParkingTest(){
 
     return parking;
 }
+
+void sauvegardeBDD(Parking parking,Parking ciel){
+    FILE *fichier;
+    fichier = fopen("avions.txt", "w+");
+
+    if (fichier == NULL) {
+        printf("Impossible d'ouvrir le fichier.\n");
+        return;
+    }
+    Avion * tmp = parking.premier;
+    while(tmp != NULL) {
+        fprintf(fichier, "ID: %d, Type: %d, Etat: %d, NbPassagers: %d\n", tmp->id, tmp->categorie, tmp->etat, tmp->nbPassagers);
+        tmp = tmp->suiv;
+    }
+    tmp = ciel.premier;
+    while(tmp != NULL) {
+        fprintf(fichier, "ID: %d, Type: %d, Etat: %d, NbPassagers: %d\n", tmp->id, tmp->categorie, tmp->etat, tmp->nbPassagers);
+        tmp = tmp->suiv;
+    }
+
+    fclose(fichier);
+}

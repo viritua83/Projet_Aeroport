@@ -14,4 +14,5 @@ struct Parking
 void ajouterAvionParking(Parking *parking);
 void retirerAvionParking(Parking *parking);
 Parking creerParkingTest();
+void sauvegardeBDD(Parking parking,Parking ciel);
 #endif

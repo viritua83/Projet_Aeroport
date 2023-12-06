@@ -9,11 +9,12 @@ affichageDonnees.o: ./affichages/affichageDonnees.c -g
 
 piste.o: ./pistes/piste.c -g
 	gcc -Wall -c ./pistes/piste.c
-
+	
 parking.o: ./parking/parking.c -g
 	gcc -Wall -c ./parking/parking.c
 
 avion.o: ./avions/avion.c -g
 	gcc -Wall -c ./avions/avion.c
+
 
 clean: rm main *.o
