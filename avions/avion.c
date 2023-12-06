@@ -57,32 +57,3 @@ void creerBDD(){
 
     fclose(fichier);
 }
-
-
-BDD lisBDD(){
-    FILE* fichier = fopen("avions.txt", "r");
-    BDD baseDeDonnee = {0};
-
-    if (fichier != NULL)
-    {
-        baseDeDonnee.premier = NULL;
-        while(fgetc(fichier) != EOF){
-            fseek(fichier, -1, SEEK_CUR);
-            Avion* tmp = malloc(sizeof(Avion));
-            if (tmp != NULL)
-            {
-                if (fscanf(fichier, "ID: %d, Type: %d, Etat: %d, NbPassagers: %d\n", &(tmp->id), &(tmp->categorie), &(tmp->etat), &(tmp->nbPassagers)) == 4)
-                {
-                    tmp->suiv = baseDeDonnee.premier;
-                    baseDeDonnee.premier = tmp;
-                }
-                else
-                    free(tmp);
-            }
-        }
-    }
-
-    fclose(fichier);
-
-    return baseDeDonnee;
-}

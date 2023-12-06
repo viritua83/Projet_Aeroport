@@ -3,7 +3,6 @@
 #include <string.h>
 #include "affichageDonnees.h"
 
-
 void afficheDonneePiste(Piste piste){
     puts("-------------------------------------------------------------------------------------------------");
     Avion* tmp = piste.avionSurPiste;
@@ -41,26 +40,4 @@ void afficheCiel(Parking ciel){
         i +=1;
         tmp = tmp->suiv;
     }
-}
-
-// void affichePistes(Piste piste1,Piste piste2,Piste piste3){
-//     Avion * tmp = ciel.premier;
-//     char espaceRempli[]=" ";
-//     int i = 0;
-//     printf("|  %s  |",espaceRempli);
-// }
-
-void afficheBDD(BDD baseDeDonnee){
-    Avion* tmp = baseDeDonnee.premier;
-    while(tmp != NULL){
-        afficheDonneeAvion(tmp);
-        tmp = tmp->suiv;
-    }
-}
-
-void affichageDonnees() {
-    // Piste maPiste = creerPiste();
-    // affichePiste(maPiste);
-    BDD baseDeDonnee = lisBDD();
-    afficheBDD(baseDeDonnee);
 }

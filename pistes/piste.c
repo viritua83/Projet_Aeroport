@@ -33,8 +33,7 @@ Piste creerPiste(int numero, int categorie){
 
 Piste decollage(Piste piste, Parking* ciel) {
     if (piste.avionSurPiste == NULL) {
-        // La piste est vide, rien à faire
-        printf("la piste est vide\n");
+        printf("Aucun avion ne doit décoller\n");
         return piste;
     }
 
@@ -47,7 +46,6 @@ Piste decollage(Piste piste, Parking* ciel) {
     }
 
     if (ptmp == NULL) {
-        // Il n'y a qu'un seul élément dans la liste
         piste.avionSurPiste = NULL;
     } else {
         ptmp->suiv = NULL;
@@ -55,6 +53,6 @@ Piste decollage(Piste piste, Parking* ciel) {
 
     tmp->suiv = ciel->premier;
     ciel->premier = tmp;
-
+    ciel->longueur++;
     return piste;
 }
