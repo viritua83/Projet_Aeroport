@@ -11,8 +11,6 @@ struct Parking
 	Avion* premier;
 };
 
-void ajouterAvionParking(Parking *parking);
-void retirerAvionParking(Parking *parking);
 Parking creerListe(int etat);
 void sauvegardeBDD(Parking parking,Parking ciel);
 #endif

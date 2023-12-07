@@ -46,11 +46,33 @@ void affichePistes(){
 // >>>>>>> ea227b3583f0b3f5c18c0c46cb38e988c49f2b10
 void afficheDonneePiste(Piste piste){
     puts("-------------------------------------------------------------------------------------------------");
-    Avion* tmp = piste.avionSurPiste;
-    printf("Donnees de la Piste | Numero : %d , Longueur : %d , Avions Max en attente : %d , Categorie : %s\n",piste.numero,piste.longueur,piste.maxEnAtt,categoriePiste(piste.categorie));
-    while(tmp != NULL){
-        afficheDonneeAvion(tmp);
-        tmp = tmp->suiv;
+    Avion* tmp = piste.premier;
+    printf("Donnees de la Piste | Numero : %d , Avion sur piste : %d , Avions Max en attente : %d , Categorie : %s\n",piste.numero,piste.longueur,piste.maxEnAtt,categoriePiste(piste.categorie));
+    if (tmp == NULL)
+    {
+        printf("Aucun avion n'est sur la piste\n");
+    }
+    else{
+        while(tmp != NULL){
+            afficheDonneeAvion(tmp);
+            tmp = tmp->suiv;
+        }
+    }
+}
+
+void afficheDonneeParking(Parking liste){
+    Avion* tmp = liste.premier;
+    if (tmp == NULL)
+    {
+        printf("le parking est vide\n");
+    }
+    else{
+        while(tmp != NULL){
+            afficheDonneeAvion(tmp);
+            tmp = tmp->suiv;
+        }
+        printf("\n");
+        printf("Nombre de places maximum : %d , Nombre d'avions dans le parking : %d\n", liste.nbMax, liste.longueur);
     }
 }
 

@@ -9,10 +9,12 @@ struct Piste {
     int longueur;
     int categorie;
     int maxEnAtt;
-    Avion * avionSurPiste;
+    Avion * premier;
 };
 
 char* categoriePiste(int intCat);
 Piste creerPiste(int numero);
+Piste ajouteAvionSurPiste(Piste piste, int id, Parking* parking);
 Piste decollage(Piste piste, Parking* ciel);
+Parking atterrissage(Parking parking, int id, Parking* ciel);
 #endif
