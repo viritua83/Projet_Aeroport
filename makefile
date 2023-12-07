@@ -1,8 +1,14 @@
-make: main.o ./affichages/affichageDonnees.o ./pistes/piste.o ./parking/parking.o ./avions/avion.o 
-	gcc -o main main.o ./affichages/affichageDonnees.o ./pistes/piste.o ./parking/parking.o ./avions/avion.o
+make: main.o ./affichages/animations.o ./traitement/traitement.o ./affichages/affichageDonnees.o ./pistes/piste.o ./parking/parking.o ./avions/avion.o 
+	gcc -o main main.o ./affichages/animations.o ./traitement/traitement.o ./affichages/affichageDonnees.o ./pistes/piste.o ./parking/parking.o ./avions/avion.o
 
 main.o: main.c 
 	gcc -Wall -c main.c
+
+animations.o: ./affichages/animations.c -g
+	gcc -Wall -c ./affichages/animations.c
+
+traitement.o: ./traitement/traitement.c -g
+	gcc -Wall -c ./traitement/traitement.c
 
 affichageDonnees.o: ./affichages/affichageDonnees.c -g
 	gcc -Wall -c ./affichages/affichageDonnees.c

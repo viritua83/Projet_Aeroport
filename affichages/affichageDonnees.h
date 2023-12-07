@@ -8,8 +8,6 @@
 void afficheDonneePiste(Piste piste);
 void afficheDonneeAvion(Avion* avion);
 void afficheDonneeParking(Parking liste);
-// <<<<<<< HEAD
-// =======
 void afficheCiel(int nbAvions);
 void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP);
 void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP);
@@ -19,6 +17,7 @@ void afficheRangee(int piste1, int piste2, int piste3,int numRangee);
 void affichePistes();
 void afficheGlobal();
 void decallageParking();
+void afficheAvionsDisponibles(Parking parking,int numPiste);
 
-// >>>>>>> ea227b3583f0b3f5c18c0c46cb38e988c49f2b10
+
 #endif

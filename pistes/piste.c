@@ -6,13 +6,13 @@
 char* categoriePiste(int intCat){
     switch (intCat)
     {
-    case 0:
+    case 1:
         return "Petite";
         break;
-    case 1:
+    case 2:
         return "Moyenne";
         break;
-    case 2:
+    case 3:
         return "Grande";
         break;
 
@@ -25,7 +25,7 @@ Piste creerPiste(int numero){
     Piste nouvPiste;
     nouvPiste.numero = numero;
     nouvPiste.maxEnAtt = 2;
-    nouvPiste.categorie = numero-1;
+    nouvPiste.categorie = numero;
     nouvPiste.longueur = 0;
     nouvPiste.premier = NULL;
     return nouvPiste;

@@ -8,10 +8,10 @@
 
 const char * verifAvion(int entier){
     switch(entier){
-        case 1:
-            return "✈️";
-        default:
-            return " ";
+    case 1:
+        return "✈️";
+    default:
+        return " ";
     }
 }
 
@@ -87,6 +87,81 @@ void afficheDonneeAvion(Avion* avion){
     }
 }
 
+
+void afficheAvionsDisponibles(Parking parking,int numPiste){
+    Avion* tmp = parking.premier;
+    int cpt = 0;
+    switch(numPiste){
+    case 1:
+        printf("Avions pouvants aller sur la petite piste :\n");
+        while(tmp != NULL){
+            if (tmp->categorie == 0 || tmp->categorie == 1)
+            {
+                if (cpt< 10)
+                {
+                    printf("| ID : %d ",tmp->id);
+
+                }
+                else{
+                    printf("\n");
+                    printf("\n");
+                    printf("| ID : %d ",tmp->id);
+                    cpt = 0;
+                }
+                cpt +=1;
+            }
+            tmp = tmp->suiv;
+        }
+        printf("\n");
+        break;
+
+    case 2:
+        printf("Avions pouvants aller sur la moyenne piste :\n");
+        while(tmp != NULL){
+            if (tmp->categorie == 0 || tmp->categorie == 1)
+            {
+                if (cpt< 10)
+                {
+                    printf("| ID : %d ",tmp->id);
+
+                }
+                else{
+                    printf("\n");
+                    printf("\n");
+                    printf("| ID : %d ",tmp->id);
+                    cpt = 0;
+                }
+                cpt +=1;
+            }
+            tmp = tmp->suiv;
+        }
+        printf("\n");
+        break;
+    case 3:
+        printf("Avions pouvants aller sur la grande piste :\n");
+        while(tmp != NULL){
+            if (tmp->categorie == 1 || tmp->categorie == 2)
+            {
+                if (cpt< 10)
+                {
+                    printf("| ID : %d ",tmp->id);
+
+                }
+                else{
+                    printf("\n");
+                    printf("\n");
+                    printf("| ID : %d ",tmp->id);
+                    cpt = 0;
+                }
+                cpt +=1;
+            }
+            tmp = tmp->suiv;
+        }
+        printf("\n");
+        break;
+    }
+}
+
 void afficheCiel(int nbAvions){
     int tmp = 0;
     int i = 0;
@@ -159,18 +234,18 @@ void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nomb
 
     if (*nombreP == MAX_PLACES ){
         // printf("Le parking est plein\n");
-                        }
+    }
     else{
     // Ajouter la nouvelle position du P dans le tableau
-    positionsP[*nombreP] = (*nombreP) % (lignes * colonnes);
-    (*nombreP)++;
-     int a = MAX_PLACES - *nombreP;
+        positionsP[*nombreP] = (*nombreP) % (lignes * colonnes);
+        (*nombreP)++;
+        int a = MAX_PLACES - *nombreP;
 
     // printf("Il reste %d places \n", a );}
 
     // Appeler la fonction pour afficher le parking
-    affiche_parking(lignes, colonnes, positionsP, *nombreP);
-}
+        affiche_parking(lignes, colonnes, positionsP, *nombreP);
+    }
 }
 
 void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP) {
@@ -180,16 +255,16 @@ void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP
     }
     else{
     // Ajouter la nouvelle position du P dans le tableau
-    positionsP[*nombreP] = (*nombreP) % (lignes * colonnes);
-    (*nombreP)--;
+        positionsP[*nombreP] = (*nombreP) % (lignes * colonnes);
+        (*nombreP)--;
 
-    int a = MAX_PLACES - *nombreP;
+        int a = MAX_PLACES - *nombreP;
 
     // printf("Il reste %d places \n", a );}
 
     // Appeler la fonction pour afficher le parking
-    affiche_parking(lignes, colonnes, positionsP, *nombreP);
-}
+        affiche_parking(lignes, colonnes, positionsP, *nombreP);
+    }
 }
 
 int gestionAffichageParking(int choix) {
@@ -198,25 +273,25 @@ int gestionAffichageParking(int choix) {
     int positionsP[MAX_PLACES];
     int nombreP = 0;
 
-        switch (choix) {
-            case 1: {
+    switch (choix) {
+    case 1: {
                 // printf("un avion decolle \n");
-               decollageAffichage(lignes, colonnes, positionsP, &nombreP);
-                break;
-            }
-            case 2:
+     decollageAffichage(lignes, colonnes, positionsP, &nombreP);
+     break;
+ }
+case 2:
                 // printf("atterrissageAffichage\n");
-               atterrissageAffichage(lignes, colonnes, positionsP, &nombreP);
-                break;
+ atterrissageAffichage(lignes, colonnes, positionsP, &nombreP);
+ break;
 
-             case 3:
-                break;
+case 3:
+    break;
 
-            default:
+default:
                 // printf("Choix invalide. Veuillez réessayer.\n");
-        }
- 
-    return 0;
+}
+
+return 0;
 }
 
 void afficheGlobal()
