@@ -6,10 +6,7 @@
 #include "../parking/parking.h"
 
 void afficheDonneePiste(Piste piste);
-// void afficheDonneeAvion(Avion* avionSurPiste);
-// <<<<<<< HEAD
-// =======
-void affichageDonnees();
+void afficheDonneeAvion(Avion* avion);
 void afficheCiel(int nbAvions);
 void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP);
 void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP);
@@ -20,5 +17,5 @@ void affichePistes();
 void afficheGlobal();
 void decallageParking();
 
-// >>>>>>> ea227b3583f0b3f5c18c0c46cb38e988c49f2b10
+
 #endif
