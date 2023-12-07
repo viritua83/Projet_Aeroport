@@ -5,6 +5,8 @@
 #include "./parking/parking.h"
 #include "./pistes/piste.h"
 #include "./affichages/affichageDonnees.h"
+#include "./traitement/traitement.h"
+
 
 int main(int argc, char const *argv[])
 {
