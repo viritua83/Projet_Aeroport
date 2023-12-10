@@ -22,7 +22,7 @@ void afficheRangee(int piste1, int piste2, int piste3,int numRangee){
     if (numRangee < 2)
     {
         printf("    |     |    |     |    |     |\n");
-        printf("    |  %s  |    |  %s  |    |  %s  |\n", espace1, espace2, espace3);
+        printf("    |     |    |     |    |  %s  |\n", espace3);
     }
     else if (1 < numRangee && numRangee < 3)
     {

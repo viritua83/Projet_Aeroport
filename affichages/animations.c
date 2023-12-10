@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include "animations.h"
 
 
 void printSpace(int nbEspaces){
