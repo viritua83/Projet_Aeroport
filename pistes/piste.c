@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "piste.h"
 
-
 char* categoriePiste(int intCat){
     switch (intCat)
     {
@@ -41,7 +40,13 @@ void ajouteAvionSurPiste(Piste* piste, int id, Parking* parking)
     }
     if (tmp == NULL)
     {
+        system("clear");
         printf("id incorrect\n");
+    }
+    else if (verifBonnePiste(tmp, piste->numero) == 0)
+    {
+       system("clear");
+       printf("id incorrect\n");
     }
     else{
         if(ptmp == NULL){
@@ -66,6 +71,7 @@ void ajouteAvionSurPiste(Piste* piste, int id, Parking* parking)
 
 void decollage(Piste* piste, Parking* ciel) {
     if (piste->premier == NULL) {
+        printf("Aucun avion sur la piste\n");
         return;
     }
 
@@ -87,9 +93,11 @@ void decollage(Piste* piste, Parking* ciel) {
     ciel->premier = tmp;
     ciel->longueur++;
     piste->longueur--;
+    joueAnimation(tmp->categorie,0);
+    system("clear");
 }
 
-void atterrissage(Parking* parking, int id, Parking* ciel){
+void atterrissage(Parking* parking, int id, Parking* ciel, Piste* piste){
     Avion* tmp = ciel->premier;
     Avion* ptmp = NULL;
     while(tmp != NULL && tmp->id != id){
@@ -99,6 +107,11 @@ void atterrissage(Parking* parking, int id, Parking* ciel){
     if (tmp == NULL)
     {
         printf("id incorrect\n");
+    }
+    else if (verifBonnePiste(tmp, piste->numero) == 0)
+    {
+       system("clear");
+       printf("id incorrect\n");
     }
     else{
         if(ptmp == NULL){
@@ -119,5 +132,42 @@ void atterrissage(Parking* parking, int id, Parking* ciel){
         tmp->etat = 0;
         ciel->longueur--;
         parking->longueur++;
+        joueAnimation(tmp->categorie,1);
+        system("clear");
+    }
+}
+
+int verifBonnePiste(Avion* avion, int numPiste){
+    switch(numPiste){
+        case 1:
+            if (avion->categorie == 0 || avion->categorie == 1)
+            {
+                return 1;
+            }
+            else{
+                return 0;
+            }
+            break;
+        case 2:
+            if (avion->categorie == 0 || avion->categorie == 1)
+            {
+                return 1;
+            }
+            else{
+                return 0;
+            }
+            break;
+        case 3:
+            if (avion->categorie == 1 || avion->categorie == 2)
+            {
+                return 1;
+            }
+            else{
+                return 0;
+            }
+            break;
+        default:
+            return 0;
+            break;
     }
 }

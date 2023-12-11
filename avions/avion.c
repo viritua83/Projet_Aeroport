@@ -22,13 +22,13 @@ char* categorieAvion(int intCat){
     switch (intCat)
     {
     case 0:
-        return "Avion Leger";
+        return " Leger  ";
         break;
     case 1:
-        return "Avion d'Affaires";
+        return "Affaires";
         break;
     case 2:
-        return "Avion de Ligne";
+        return " Ligne  ";
         break;
 
     default:

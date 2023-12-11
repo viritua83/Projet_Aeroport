@@ -252,3 +252,36 @@ void animeDAffaire() {
     usleep (3000000);
 }
 
+void joueAnimation(int typeAVion, int animation) {
+    // animation = 0 decollage 
+    // animation = 1 atterrissage
+    if (animation == 0) {
+        switch (typeAVion) {
+            case 0:
+                animeDLeger();
+                break;
+            case 1:
+                animeDAffaire();
+                break;
+            case 2:
+                animeDLigne();
+                break;
+            default:
+                break;
+        }
+    } else if(animation == 1) {
+        switch (typeAVion) {
+            case 0:
+                animeALeger();
+                break;
+            case 1:
+                animeAAffaire();
+                break;
+            case 2:
+                animeALigne();
+                break;
+            default:
+                break;
+        }
+    }
+}

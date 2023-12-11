@@ -35,6 +35,7 @@ void afficheMenu(Parking parking,Parking ciel,Piste piste1,Piste piste2,Piste pi
     afficheOptions();
     printf("Votre choix est: ");
     scanf("%d", &choix);
+    system("clear");
     if (choix == 1)
     {
         traitement(parking,ciel,piste1,piste2,piste3);

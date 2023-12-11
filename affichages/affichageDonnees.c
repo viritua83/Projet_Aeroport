@@ -14,23 +14,23 @@ const char * verifAvion(int entier){
     }
 }
 
-void afficheRangee(int piste1, int piste2, int piste3,int numRangee){
+void afficheRangee(int piste3, int piste2, int piste1,int numRangee){
     const char *espace1 = verifAvion(piste1);
     const char *espace2 = verifAvion(piste2);
     const char *espace3 = verifAvion(piste3);
     if (numRangee < 2)
     {
         printf("    |     |    |     |    |     |\n");
-        printf("    |     |    |     |    |  %s  |\n", espace3);
+        printf("    |     |    |  %s  |    |  %s  |\n" , espace2, espace1);
     }
     else if (1 < numRangee && numRangee < 3)
     {
         printf("    |     |    |     |\n");
-        printf("    |  %s  |    |  %s  |\n", espace1, espace2);
+        printf("    |  %s  |    |  %s  |\n", espace3, espace2);
     }
     else {
         printf("    |     |\n");
-        printf("    |  %s  |\n", espace1);
+        printf("    |  %s  |\n", espace3);
     }
 }
 
@@ -96,15 +96,15 @@ void afficheAvionsDisponibles(Parking parking,int numPiste){
         while(tmp != NULL){
             if (tmp->categorie == 0 || tmp->categorie == 1)
             {
-                if (cpt< 10)
+                if (cpt< 5)
                 {
-                    printf("| ID : %d ",tmp->id);
+                    printf("| ID : %2d , Type : %s ",tmp->id,categorieAvion(tmp->categorie));
 
                 }
                 else{
                     printf("\n");
                     printf("\n");
-                    printf("| ID : %d ",tmp->id);
+                    printf("| ID : %2d , Type : %s ",tmp->id,categorieAvion(tmp->categorie));
                     cpt = 0;
                 }
                 cpt +=1;
@@ -119,15 +119,16 @@ void afficheAvionsDisponibles(Parking parking,int numPiste){
         while(tmp != NULL){
             if (tmp->categorie == 0 || tmp->categorie == 1)
             {
-                if (cpt< 10)
+                if (cpt< 5)
                 {
-                    printf("| ID : %d ",tmp->id);
+                    printf("| ID : %2d , Type : %s ",tmp->id,categorieAvion(tmp->categorie));
+
 
                 }
                 else{
                     printf("\n");
                     printf("\n");
-                    printf("| ID : %d ",tmp->id);
+                    printf("| ID : %2d , Type : %s ",tmp->id,categorieAvion(tmp->categorie));
                     cpt = 0;
                 }
                 cpt +=1;
@@ -141,15 +142,15 @@ void afficheAvionsDisponibles(Parking parking,int numPiste){
         while(tmp != NULL){
             if (tmp->categorie == 1 || tmp->categorie == 2)
             {
-                if (cpt< 10)
+                if (cpt< 5)
                 {
-                    printf("| ID : %d ",tmp->id);
+                    printf("| ID : %2d , Type : %s ",tmp->id,categorieAvion(tmp->categorie));
 
                 }
                 else{
                     printf("\n");
                     printf("\n");
-                    printf("| ID : %d ",tmp->id);
+                    printf("| ID : %2d , Type : %s ",tmp->id,categorieAvion(tmp->categorie));
                     cpt = 0;
                 }
                 cpt +=1;
@@ -222,6 +223,7 @@ void affiche_parking(int lignes, int colonnes, int nombreP) {
 
 void afficheGlobal(Parking parking, Parking ciel,Piste piste1,Piste piste2,Piste piste3)
 {
+    puts("******************************************************");
     afficheCiel(ciel.longueur);
     puts("");
     puts("");

@@ -9,6 +9,6 @@ void animeAAffaire();
 void animeDLeger();
 void animeDLigne();
 void animeDAffaire();
-
+void joueAnimation(int typeAVion, int animation);
 
 #endif
