@@ -27,7 +27,8 @@ void sauvegardeBDD(Parking parking,Parking ciel){
         fprintf(fichier, "ID: %d, Type: %d, Etat: %d, NbPassagers: %d\n", tmp->id, tmp->categorie, tmp->etat, tmp->nbPassagers);
         tmp = tmp->suiv;
     }
-
+    printf("BASE DE DONNEE SAUVEGARDEE\n");
+    usleep(3000000);
     fclose(fichier);
 }
 
