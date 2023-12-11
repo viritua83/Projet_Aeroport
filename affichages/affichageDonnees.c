@@ -7,10 +7,9 @@
 // =======
 
 const char * verifAvion(int entier){
-    switch(entier){
-    case 1:
+    if (entier > 0) {
         return "✈️";
-    default:
+    } else {
         return " ";
     }
 }
@@ -35,19 +34,19 @@ void afficheRangee(int piste1, int piste2, int piste3,int numRangee){
     }
 }
 
-void affichePistes(){
-    afficheRangee(1, 0, 0, 3);
-    afficheRangee(1, 1, 0, 2);
-    afficheRangee(0, 1, 1, 1);
-    afficheRangee(0, 0, 0, 0);
+void affichePistes(Piste piste1,Piste piste2,Piste piste3){
+    afficheRangee(piste3.longueur, 0, 0, 3);
+    afficheRangee(piste3.longueur-1, piste2.longueur, 0, 2);
+    afficheRangee(0, piste2.longueur-1, piste1.longueur, 1);
+    afficheRangee(0, 0, piste1.longueur-1, 0);
 }
 
 
 // >>>>>>> ea227b3583f0b3f5c18c0c46cb38e988c49f2b10
-void afficheDonneePiste(Piste piste){
+void afficheDonneePiste(Piste* piste){
     puts("-------------------------------------------------------------------------------------------------");
-    Avion* tmp = piste.premier;
-    printf("Donnees de la Piste | Numero : %d , Avion sur piste : %d , Avions Max en attente : %d , Categorie : %s\n",piste.numero,piste.longueur,piste.maxEnAtt,categoriePiste(piste.categorie));
+    Avion* tmp = piste->premier;
+    printf("Donnees de la Piste | Numero : %d , Avion sur piste : %d , Avions Max en attente : %d , Categorie : %s\n",piste->numero,piste->longueur,piste->maxEnAtt,categoriePiste(piste->categorie));
     if (tmp == NULL)
     {
         printf("Aucun avion n'est sur la piste\n");
@@ -195,31 +194,22 @@ void decallageParking() {
     printf("        ");
 }
 
-void affiche_parking(int lignes, int colonnes, int positionsP[], int nombreP) {
+void affiche_parking(int lignes, int colonnes, int nombreP) {
     decallageParking();
     for (int i = 0; i < colonnes; i++) {
         printf("+---");
     }
     printf("+\n");
-
+    int cpt = 0;
     for (int i = 0; i < lignes; i++) {
         decallageParking();
         for (int j = 0; j < colonnes; j++) {
-            int position = i * colonnes + j;
-            int pPresent = 0;
-
-            for (int k = 0; k < nombreP; k++) {
-                if (positionsP[k] == position) {
-                    pPresent = 1;
-                    break;
-                }
-            }
-
-            if (pPresent) {
+            if (nombreP-cpt > 0) {
                 printf("| ✈️ ");
             } else {
                 printf("|   ");
             }
+            cpt++;
         }
         printf("|\n");
         decallageParking();
@@ -230,78 +220,14 @@ void affiche_parking(int lignes, int colonnes, int positionsP[], int nombreP) {
     }
 }
 
-void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP) {
-
-    if (*nombreP == MAX_PLACES ){
-        // printf("Le parking est plein\n");
-    }
-    else{
-    // Ajouter la nouvelle position du P dans le tableau
-        positionsP[*nombreP] = (*nombreP) % (lignes * colonnes);
-        (*nombreP)++;
-        int a = MAX_PLACES - *nombreP;
-
-    // printf("Il reste %d places \n", a );}
-
-    // Appeler la fonction pour afficher le parking
-        affiche_parking(lignes, colonnes, positionsP, *nombreP);
-    }
-}
-
-void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP) {
-    if (*nombreP == 0)
-    {
-        // printf("Le parking est vide , rien a faire decoller \n");
-    }
-    else{
-    // Ajouter la nouvelle position du P dans le tableau
-        positionsP[*nombreP] = (*nombreP) % (lignes * colonnes);
-        (*nombreP)--;
-
-        int a = MAX_PLACES - *nombreP;
-
-    // printf("Il reste %d places \n", a );}
-
-    // Appeler la fonction pour afficher le parking
-        affiche_parking(lignes, colonnes, positionsP, *nombreP);
-    }
-}
-
-int gestionAffichageParking(int choix) {
-    int lignes = 6;
-    int colonnes = 5;
-    int positionsP[MAX_PLACES];
-    int nombreP = 0;
-
-    switch (choix) {
-        case 1: {
-                // printf("un avion decolle \n");
-           decollageAffichage(lignes, colonnes, positionsP, &nombreP);
-           break;
-       }
-       case 2:
-                // printf("atterrissageAffichage\n");
-       atterrissageAffichage(lignes, colonnes, positionsP, &nombreP);
-       break;
-
-       case 3:
-       break;
-
-       default:
-                // printf("Choix invalide. Veuillez réessayer.\n");
-   }
-
-   return 0;
-}
-
-void afficheGlobal(Parking parking, Parking ciel)
+void afficheGlobal(Parking parking, Parking ciel,Piste piste1,Piste piste2,Piste piste3)
 {
     afficheCiel(ciel.longueur);
     puts("");
     puts("");
     puts("");
     puts("");
-    affichePistes();
-    gestionAffichageParking(2);
+    affichePistes(piste1,piste2,piste3);
+    affiche_parking(6, 5, parking.longueur);
 // >>>>>>> ea227b3583f0b3f5c18c0c46cb38e988c49f2b10
 }

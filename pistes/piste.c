@@ -31,7 +31,7 @@ Piste creerPiste(int numero){
     return nouvPiste;
 }
 
-Piste ajouteAvionSurPiste(Piste piste, int id, Parking* parking)
+void ajouteAvionSurPiste(Piste* piste, int id, Parking* parking)
 {
     Avion* tmp = parking->premier;
     Avion* ptmp = NULL;
@@ -50,29 +50,26 @@ Piste ajouteAvionSurPiste(Piste piste, int id, Parking* parking)
         else{
             ptmp->suiv = tmp->suiv;
         }
-        if (piste.premier == NULL)
+        if (piste->premier == NULL)
         {
             tmp->suiv = NULL;
-            piste.premier = tmp;
+            piste->premier = tmp;
         }
         else{
-            tmp->suiv = piste.premier;
-            piste.premier = tmp;
+            tmp->suiv = piste->premier;
+            piste->premier = tmp;
         }
         parking->longueur--;
-        piste.longueur++;
+        piste->longueur++;
     }
-
-    return piste;
 }
 
-Piste decollage(Piste piste, Parking* ciel) {
-    if (piste.premier == NULL) {
-        printf("Aucun avion ne doit décoller\n");
-        return piste;
+void decollage(Piste* piste, Parking* ciel) {
+    if (piste->premier == NULL) {
+        return;
     }
 
-    Avion* tmp = piste.premier;
+    Avion* tmp = piste->premier;
     Avion* ptmp = NULL;
 
     while (tmp->suiv != NULL) {
@@ -81,7 +78,7 @@ Piste decollage(Piste piste, Parking* ciel) {
     }
 
     if (ptmp == NULL) {
-        piste.premier = NULL;
+        piste->premier = NULL;
     } else {
         ptmp->suiv = NULL;
     }
@@ -89,8 +86,7 @@ Piste decollage(Piste piste, Parking* ciel) {
     tmp->suiv = ciel->premier;
     ciel->premier = tmp;
     ciel->longueur++;
-    piste.longueur--;
-    return piste;
+    piste->longueur--;
 }
 
 void atterrissage(Parking* parking, int id, Parking* ciel){

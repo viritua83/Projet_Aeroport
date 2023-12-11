@@ -14,7 +14,7 @@ struct Piste {
 
 char* categoriePiste(int intCat);
 Piste creerPiste(int numero);
-Piste ajouteAvionSurPiste(Piste piste, int id, Parking* parking);
-Piste decollage(Piste piste, Parking* ciel);
+void ajouteAvionSurPiste(Piste* piste, int id, Parking* parking);
+void decollage(Piste* piste, Parking* ciel);
 void atterrissage(Parking* parking, int id, Parking* ciel);
 #endif

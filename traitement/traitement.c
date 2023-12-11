@@ -5,21 +5,20 @@
 
 
 
-Piste gerePistes(Parking* parking,Parking ciel,Piste piste,int idAvion, int action) //action = 0 atterrissage, 1 décollage, 2 déplace sur piste
+void gerePistes(Parking* parking,Parking* ciel,Piste* piste,int idAvion, int action) //action = 0 atterrissage, 1 decollage, 2 deplace sur piste
 {
 	if (action == 1)
 	{
-		piste = decollage(piste,&ciel);
+		decollage(piste,ciel);
 	}
 	if (action == 2)
 	{
-		atterrissage(parking,idAvion,&ciel);
+		atterrissage(parking,idAvion,ciel);
 	}
 	if (action == 3)
 	{
-		piste = ajouteAvionSurPiste(piste, idAvion, parking);
+		ajouteAvionSurPiste(piste, idAvion, parking);
 	}
-	return piste;
 }
 
 void traitement(Parking parking,Parking ciel,Piste piste1,Piste piste2,Piste piste3){
@@ -29,101 +28,110 @@ void traitement(Parking parking,Parking ciel,Piste piste1,Piste piste2,Piste pis
         int action = 0;
         int piste = 0;
         int avion = 0;
+        afficheGlobal(parking, ciel, piste1,piste2,piste3);
 
         printf("****************************************************\n");
-        printf("Veuillez choisir une option parmi celles proposées:\n");
-        printf("(1) Créer une base de données\n");
-        printf("(2) Gestion de l'aéroport\n");
+        printf("Veuillez choisir une option parmi celles proposees:\n");
+        printf("(1) Creer une base de donnees\n");
+        printf("(2) Gestion de l'aeroport\n");
         printf("(3) Quitter\n");
         printf("Votre choix est: ");
         scanf("%d", &action);
 
-        // Vérification de la saisie utilisateur pour le menu principal
+        // Verification de la saisie utilisateur pour le menu principal
         while (action < 1 || action > 3) {
             printf("Veuillez entrer une valeur correcte: ");
             scanf("%d", &action);
         }
 
         system("clear");
-
         switch (action) {
             case 1:
                 creerBDD();
                 break;
 
             case 2:
-                afficheGlobal(parking, ciel);
+        		afficheGlobal(parking, ciel, piste1,piste2,piste3);
                 printf("****************************************************\n");
-                printf("Veuillez choisir une option parmi celles proposées:\n");
-                printf("(1) Gérer piste 1\n");
-                printf("(2) Gérer piste 2\n");
-                printf("(3) Gérer piste 3\n");
+                printf("Veuillez choisir une option parmi celles proposees:\n");
+                printf("(1) Gerer piste 1\n");
+                printf("(2) Gerer piste 2\n");
+                printf("(3) Gerer piste 3\n");
                 printf("(4) Retour\n");
                 printf("Votre choix est: ");
                 scanf("%d", &piste);
 
-                // Vérification de la saisie utilisateur pour la gestion des pistes
+                // Verification de la saisie utilisateur pour la gestion des pistes
                 while (piste < 1 || piste > 4) {
                     printf("Veuillez entrer une valeur correcte: ");
                     scanf("%d", &piste);
                 }
                 system("clear");
-                Piste pisteChoisie={0};
+                int quitterPiste = 0;
+                if (piste == 4)
+                {
+                	quitterPiste = 1;
+                }
+               	Piste* pisteChoisie = malloc(sizeof(Piste));
             	switch(piste){
                 	case 1:
-                		pisteChoisie = piste1;
+                		pisteChoisie = &piste1;
             			break;
                 	case 2:
-                		pisteChoisie = piste2;
+                		pisteChoisie = &piste2;
             			break;
       
                 	case 3:
-                		pisteChoisie = piste3;
+                		pisteChoisie = &piste3;
             			break;
                 	
                 	default:
                 		break;
                 }
-                int quitterPiste = 0;
                 while (quitterPiste != 1) {
+                	afficheGlobal(parking, ciel,piste1,piste2,piste3);
                     printf("****************************************************\n");
-                    printf("Veuillez choisir une option parmi celles proposées:\n");
-                    printf("(1) Décoller\n");
+                    printf("Veuillez choisir une option parmi celles proposees:\n");
+                    printf("(1) Decoller\n");
                     printf("(2) Atterrissage\n");
-                    printf("(3) Déplacer un avion sur la piste\n");
-                    printf("(4) Retour\n");
+                    printf("(3) Deplacer un avion sur la piste\n");
+                    printf("(4) Afficher les donnees de la piste\n");
+                    printf("(5) Annuler\n");
                     printf("Votre choix est: ");
                     scanf("%d", &action);
 
-                    // Vérification de la saisie utilisateur pour la gestion des actions sur les pistes
-                    while (action < 1 || action > 4) {
+                    // Verification de la saisie utilisateur pour la gestion des actions sur les pistes
+                    while (action < 1 || action > 5) {
                         printf("Veuillez entrer une valeur correcte: ");
                         scanf("%d", &action);
                     }
                     system("clear");
 
-                    if (action == 4) {
+                    if (action == 5) {
                         quitterPiste = 1; // Quitter la boucle de gestion de la piste
                     } 
                     else {
                         printf("****************************************************\n");
                         switch(action){
+                        	case 4:
+                        		afficheDonneePiste(pisteChoisie);
+                        		break;
                         	case 3:
-                            	afficheAvionsDisponibles(parking,pisteChoisie.numero);
-                                printf("Veuillez choisir l'id de l'avion souhaité:\n");
+                            	afficheAvionsDisponibles(parking,pisteChoisie->numero);
+                                printf("Veuillez choisir l'id de l'avion souhaite:\n");
                                 printf("Votre choix est: ");
                                 scanf("%d", &avion);
                             	break;
                             case 2:
-                            	afficheAvionsDisponibles(ciel,pisteChoisie.numero);
-                                printf("Veuillez choisir l'id de l'avion souhaité:\n");
+                            	afficheAvionsDisponibles(ciel,pisteChoisie->numero);
+                                printf("Veuillez choisir l'id de l'avion souhaite:\n");
                                 printf("Votre choix est: ");
                                 scanf("%d", &avion);
                             	break;
                             //LISTE DE TOUS LES AVIONS POUVANTS ETRE DEPLACES SUR LA PISTE
-                            // Vérification de la saisie utilisateur pour le type d'avion 
+                            // Verification de la saisie utilisateur pour le type d'avion 
                         }
-                        pisteChoisie = gerePistes(&parking,ciel,pisteChoisie, avion, action);
+                        gerePistes(&parking,&ciel,pisteChoisie, avion, action);
 
                     }
                 }
