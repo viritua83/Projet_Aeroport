@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "parking.h"
 
 void sauvegardeBDD(Parking parking,Parking ciel){
+    if (parking.longueur + ciel.longueur != 50)
+    {
+        printf("Veuillez libérer les pistes avant de sauvegarder\n");
+        usleep(3000000);
+        return;
+    }
     FILE *fichier;
     fichier = fopen("avions.txt", "w+");
 

@@ -46,7 +46,10 @@ void traitement(Parking parking,Parking ciel,Piste piste1,Piste piste2,Piste pis
             case 1:
                 creerBDD();
                 system("clear");
-                printf("Nouvelle base de donnee creer\n");
+                printf("Nouvelle base de donnee crée\n");
+                piste1 = creerPiste(1);
+				piste2 = creerPiste(2);
+				piste3 = creerPiste(3);
                 parking = creerListe(0);
                 ciel = creerListe(1);
                 break;
@@ -157,7 +160,8 @@ void traitement(Parking parking,Parking ciel,Piste piste1,Piste piste2,Piste pis
                 }
                 break;
             case 3:
-                quitter = 1; // Quitter l'application
+                quitter = 1;
+                afficheMenu(parking,ciel,piste1,piste2,piste3); // Quitter l'application
                 break;
         }
     }
