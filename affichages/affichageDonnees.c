@@ -274,29 +274,29 @@ int gestionAffichageParking(int choix) {
     int nombreP = 0;
 
     switch (choix) {
-    case 1: {
+        case 1: {
                 // printf("un avion decolle \n");
-     decollageAffichage(lignes, colonnes, positionsP, &nombreP);
-     break;
- }
-case 2:
+           decollageAffichage(lignes, colonnes, positionsP, &nombreP);
+           break;
+       }
+       case 2:
                 // printf("atterrissageAffichage\n");
- atterrissageAffichage(lignes, colonnes, positionsP, &nombreP);
- break;
+       atterrissageAffichage(lignes, colonnes, positionsP, &nombreP);
+       break;
 
-case 3:
-    break;
+       case 3:
+       break;
 
-default:
+       default:
                 // printf("Choix invalide. Veuillez réessayer.\n");
+   }
+
+   return 0;
 }
 
-return 0;
-}
-
-void afficheGlobal()
+void afficheGlobal(Parking parking, Parking ciel)
 {
-    afficheCiel(50);
+    afficheCiel(ciel.longueur);
     puts("");
     puts("");
     puts("");

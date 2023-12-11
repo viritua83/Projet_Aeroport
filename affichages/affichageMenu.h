@@ -3,6 +3,7 @@
 #include "../avions/avion.h"
 #include "../parking/parking.h"
 #include "../pistes/piste.h"
+#include "../traitement/traitement.h"
 
 void afficheBienvenue();
 void afficheOptions();

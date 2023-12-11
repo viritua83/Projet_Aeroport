@@ -52,7 +52,7 @@ void traitement(Parking parking,Parking ciel,Piste piste1,Piste piste2,Piste pis
                 break;
 
             case 2:
-                afficheGlobal();
+                afficheGlobal(parking, ciel);
                 printf("****************************************************\n");
                 printf("Veuillez choisir une option parmi celles proposées:\n");
                 printf("(1) Gérer piste 1\n");
@@ -123,7 +123,8 @@ void traitement(Parking parking,Parking ciel,Piste piste1,Piste piste2,Piste pis
                             //LISTE DE TOUS LES AVIONS POUVANTS ETRE DEPLACES SUR LA PISTE
                             // Vérification de la saisie utilisateur pour le type d'avion 
                         }
-                        gerePistes(parking,ciel,pisteChoisie, avion, action);
+                        pisteChoisie = gerePistes(parking,ciel,pisteChoisie, avion, action);
+                        
                     }
                 }
                 break;

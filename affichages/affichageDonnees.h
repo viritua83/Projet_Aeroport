@@ -15,7 +15,7 @@ int gestionAffichageParking(int choix);
 const char * verifAvion(int entier);
 void afficheRangee(int piste1, int piste2, int piste3,int numRangee);
 void affichePistes();
-void afficheGlobal();
+void afficheGlobal(Parking parking, Parking ciel);
 void decallageParking();
 void afficheAvionsDisponibles(Parking parking,int numPiste);
 
