@@ -93,7 +93,7 @@ Piste decollage(Piste piste, Parking* ciel) {
     return piste;
 }
 
-Parking atterrissage(Parking parking, int id, Parking* ciel){
+void atterrissage(Parking* parking, int id, Parking* ciel){
     Avion* tmp = ciel->premier;
     Avion* ptmp = NULL;
     while(tmp != NULL && tmp->id != id){
@@ -111,19 +111,17 @@ Parking atterrissage(Parking parking, int id, Parking* ciel){
         else{
             ptmp->suiv = tmp->suiv;
         }
-        if (parking.premier == NULL)
+        if (parking->premier == NULL)
         {
             tmp->suiv = NULL;
-            parking.premier = tmp;
+            parking->premier = tmp;
         }
         else{
-            tmp->suiv = parking.premier;
-            parking.premier = tmp;
+            tmp->suiv = parking->premier;
+            parking->premier = tmp;
         }
         tmp->etat = 0;
         ciel->longueur--;
-        parking.longueur++;
+        parking->longueur++;
     }
-
-    return parking;
 }

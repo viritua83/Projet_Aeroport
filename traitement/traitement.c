@@ -5,7 +5,7 @@
 
 
 
-Piste gerePistes(Parking parking,Parking ciel,Piste piste,int idAvion, int action) //action = 0 atterrissage, 1 décollage, 2 déplace sur piste
+Piste gerePistes(Parking* parking,Parking ciel,Piste piste,int idAvion, int action) //action = 0 atterrissage, 1 décollage, 2 déplace sur piste
 {
 	if (action == 1)
 	{
@@ -13,11 +13,11 @@ Piste gerePistes(Parking parking,Parking ciel,Piste piste,int idAvion, int actio
 	}
 	if (action == 2)
 	{
-		ciel = atterrissage(parking,idAvion,&ciel);
+		atterrissage(parking,idAvion,&ciel);
 	}
 	if (action == 3)
 	{
-		piste = ajouteAvionSurPiste(piste, idAvion, &parking);
+		piste = ajouteAvionSurPiste(piste, idAvion, parking);
 	}
 	return piste;
 }
@@ -123,8 +123,8 @@ void traitement(Parking parking,Parking ciel,Piste piste1,Piste piste2,Piste pis
                             //LISTE DE TOUS LES AVIONS POUVANTS ETRE DEPLACES SUR LA PISTE
                             // Vérification de la saisie utilisateur pour le type d'avion 
                         }
-                        pisteChoisie = gerePistes(parking,ciel,pisteChoisie, avion, action);
-                        
+                        pisteChoisie = gerePistes(&parking,ciel,pisteChoisie, avion, action);
+
                     }
                 }
                 break;
