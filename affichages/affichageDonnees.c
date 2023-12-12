@@ -3,9 +3,6 @@
 #include <string.h>
 #include "affichageDonnees.h"
 
-// <<<<<<< HEAD
-// =======
-
 const char * verifAvion(int entier){
     if (entier > 0) {
         return "✈️";
@@ -41,8 +38,6 @@ void affichePistes(Piste piste1,Piste piste2,Piste piste3){
     afficheRangee(0, 0, piste1.longueur-1, 0);
 }
 
-
-// >>>>>>> ea227b3583f0b3f5c18c0c46cb38e988c49f2b10
 void afficheDonneePiste(Piste* piste){
     puts("-------------------------------------------------------------------------------------------------");
     Avion* tmp = piste->premier;
@@ -56,22 +51,6 @@ void afficheDonneePiste(Piste* piste){
             afficheDonneeAvion(tmp);
             tmp = tmp->suiv;
         }
-    }
-}
-
-void afficheDonneeParking(Parking liste){
-    Avion* tmp = liste.premier;
-    if (tmp == NULL)
-    {
-        printf("le parking est vide\n");
-    }
-    else{
-        while(tmp != NULL){
-            afficheDonneeAvion(tmp);
-            tmp = tmp->suiv;
-        }
-        printf("\n");
-        printf("Nombre de places maximum : %d , Nombre d'avions dans le parking : %d\n", liste.nbMax, liste.longueur);
     }
 }
 
@@ -179,17 +158,8 @@ void afficheCiel(int nbAvions){
         tmp+=1;
         i +=1;
     }
-// <<<<<<< HEAD
-// =======
     printf("\n");
 }
-
-// void affichePistes(Piste piste1,Piste piste2,Piste piste3){
-//     Avion * tmp = ciel.premier;
-//     char espaceRempli[]=" ";
-//     int i = 0;
-//     printf("|  %s  |",espaceRempli);
-// }
 
 void decallageParking() {
     printf("        ");
@@ -231,5 +201,4 @@ void afficheGlobal(Parking parking, Parking ciel,Piste piste1,Piste piste2,Piste
     puts("");
     affichePistes(piste1,piste2,piste3);
     affiche_parking(6, 5, parking.longueur);
-// >>>>>>> ea227b3583f0b3f5c18c0c46cb38e988c49f2b10
 }

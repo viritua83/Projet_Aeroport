@@ -12,7 +12,6 @@ struct Avion {
     Avion * suiv ;
 };
 
-// Avion* creerAvion();
 char* etatAvion(int intEtat);
 char* categorieAvion(int intCat);
 void creerBDD();

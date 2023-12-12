@@ -8,11 +8,11 @@ void afficheBienvenue() {
     printf("  / /\\/ '_ \\ / _ \\   / /\\/\\ \\ /\\ / / _ \\    / /\\/ _ \\ \\ /\\ / / _ \\ '__/ __|\n");
     printf(" / /  | | | |  __/  / /    \\ V  V / (_) |  / / | (_) \\ V  V /  __/ |  \\__ \\\n");
     printf(" \\/   |_| |_|\\___|  \\/      \\_/\\_/ \\___/   \\/   \\___/ \\_/\\_/ \\___|_|  |___/\n");
-    printf("   ********/\\************************************************/\\*********\n");
-    printf("   *      /  \\                The Two Towers                /  \\       *\n");
-    printf("   ******/____\\********************************************/____\\*******\n");
-    printf("   *     |    |                                            |    |      *\n");
-    printf("   *     |    |            Bienvenue dans The Two Towers   |    |      *\n");
+    printf("   ******______********************************************______********\n");
+    printf("   *    /______\\              The Two Towers              /______\\     *\n");
+    printf("   *****\\` `` `/***************************************** \\` `` `/******\n");
+    printf("   *     \\____/                                            \\____/      *\n");
+    printf("   *     |    |       Bienvenue dans The Two Towers        |    |      *\n");
     printf("   *     |    |                                            |    |      *\n");
     printf("   *********************************************************************\n");
 }
@@ -21,7 +21,8 @@ void afficheOptions() {
     printf("   *  Options disponibles :                                            *\n");
     printf("   *                                                                   *\n");
     printf("   *  1. Commencer la simulation manuelle                              *\n");
-    printf("\033[1;31m   *  2. Commencer la simulation automatique                           *\033[0m\n");    printf("   *  3. Sauvegarder les donnees                                       *\n");
+    printf("   *  \033[1;31m2. Commencer la simulation automatique                           \033[0m*\n");    
+    printf("   *  3. Sauvegarder les donnees                                       *\n");
     printf("   *  4. Quitter                                                       *\n");
     printf("   *                                                                   *\n");
     printf("   *********************************************************************\n");

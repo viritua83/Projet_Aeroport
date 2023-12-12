@@ -7,10 +7,7 @@
 
 void afficheDonneePiste(Piste* piste);
 void afficheDonneeAvion(Avion* avion);
-void afficheDonneeParking(Parking liste);
 void afficheCiel(int nbAvions);
-void atterrissageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP);
-void decollageAffichage(int lignes, int colonnes, int positionsP[], int *nombreP);
 void affiche_parking(int lignes, int colonnes, int nombreP);
 const char * verifAvion(int entier);
 void afficheRangee(int piste1, int piste2, int piste3,int numRangee);
